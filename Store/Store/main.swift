@@ -47,10 +47,10 @@ class Receipt {
     func output() -> String {
         var receiptString = "Receipt:\n"
         for item in itemsList {
-            receiptString += "\(item.name) : $\(Double(item.price()) / 100)\n"
+            receiptString += "\(item.name): $\(Double(item.price()) / 100)\n"
         }
         receiptString += "------------------\n"
-        receiptString += "TOTAL: $\(Double(total()) / 100)\n"
+        receiptString += "TOTAL: $\(Double(total()) / 100)"
         return receiptString
     }
 
@@ -78,15 +78,3 @@ class Store {
     }
 }
 
-func testRegister() {
-    let register = Register()
-    let item = Item(name: "Beans", priceEach: 499) // Price is in pennies, so $4.99 becomes 499
-    
-    register.scan(item)
-    let subtotal = register.subtotal()
-    
-    print("Subtotal: $\(Double(subtotal) / 100)") // Convert subtotal back to dollars
-}
-
-// Run the unit test
-testRegister()
